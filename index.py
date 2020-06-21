@@ -49,8 +49,10 @@ def complier_output(code,inp,chk):
     #close the file descriptor.
     os.close(fd)
     #Compiling the c program file and retrieving the error if any. 
-    #s=subprocess.run(['gcc','-o','new','Try.c'],stderr=PIPE,)
-    s=subprocess.run(['tcc','-o','new','Try.c'],stderr=PIPE,)
+    # use gcc
+    s=subprocess.run(['gcc','-o','new','Try.c', '-lm'],stderr=PIPE,)
+    # use tcc
+    #s=subprocess.run(['tcc','-o', 'new', 'Try.c'],stderr=PIPE,)
     #storing the value returned by return code.
     check=s.returncode
     #checking whether program compiled succesfully or not.
